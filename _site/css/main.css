@@ -1,0 +1,131 @@
+:root {
+    /*Text*/
+    --txt-l: #000;
+    --txt-d: #fff;
+    --txt-a: #9b59b6;
+    --txt-ad: #8e44ad;
+    --txt-h: #a15dbd;
+    /*Background*/
+    --bg-l: #fff;
+    --bg-d: #1b1b1b;
+    --bg-a: #6e3e81;
+    --bg-ad: #592a6d;
+    --bg-h: #2b2b2b;
+    --bg-ah: #9b59b6;
+    /*informative colours*/
+    --scs: #2ecc71;
+    --inf: #00B7FF;
+    --wrn: #e67e22;
+    --err: #e74c3c;
+}
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: var(--bg-a);
+  color: var(--txt-d);
+  margin: 0px 10px;
+  font-size: 14px;
+  transition: .3s linear;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border-radius: 6px;
+}
+.button::before {
+  content: "";
+    position: absolute;
+    left: -100px;
+    width: 209%;
+    height: 0%;
+    background: #a15dbd;
+    transition: 0.8s;
+    z-index: -1;
+    transform: rotatez(45deg);
+}
+.button::before {
+  bottom: 0;
+}
+.button:hover::before {
+  height: 300%;
+}
+
+a {
+  color: var(--txt-a);
+}
+
+
+.navbar {
+  display: flex;
+  height: 3rem;
+  position: fixed;
+  padding-left: 1rem;
+  align-items: center;
+  width: 100vw;
+  background: var(--bg-l);
+} 
+
+.logo, .nav-item{
+  display:flex;
+  align-items: center;
+  padding: 0 1rem 0 1rem ;
+  user-select: none;
+  cursor: pointer;
+  height: 100%;
+  transition: .2s ease;
+}
+
+.logo {
+  font-weight: 600;
+  color: var(--txt-l);
+}
+
+.nav-item:hover, .logo:hover {
+  color: var(--txt-a);
+}
+
+section {
+  padding: 1rem;
+}
+
+.title {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.object {
+  width: 25%;
+  padding: 1rem;
+  background: #fafafa;
+  border-radius: 10px;
+  transition: .2s ease;
+  margin: 5px;
+}
+
+.object:hover {
+  box-shadow: 0px 10px 15px #3b3b3b;
+  transform: translateY(-5px);
+}
