@@ -6,22 +6,45 @@ html(lang="en")
         link(rel="stylesheet", href="/css/main.css")
         title king_ultron99
     body
+
+        //navbar
         navbar(class="navbar")
-            .logo(onclick="document.getElementById('intro').scrollIntoView({behavior: 'smooth'})") King_ultron99
+            .logo(onclick="document.getElementById('intro').scrollIntoView({behavior: 'smooth'})")
+                h3 King_ultron99
             .nav-item(onclick="document.getElementById('intro').scrollIntoView({behavior: 'smooth'})") Home
             .nav-item(onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})") About
             .nav-item(onclick="document.getElementById('repos').scrollIntoView({behavior: 'smooth'})") Repos
             .nav-item(onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})") contact
-
+        
+        // intro landing
         .intro(id="intro")
-            h1 Hello! I'm King_ultron99
+            h1 Hello! I'm 
+                span King_ultron99
             .button(onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})") About me
-
+        
+        // About
+        section(id="about")
+            h1(class="title") About me
+            .about-content
+                img(class="profile" src=user.avatar_url)
+                .about-text
+                    h2 I'm king_ultron99
+                    p.
+                        I am a self-taught full stack web developer.
+       
+        // Repos
         section(id="repos")
             h1(class="title") My Repos
 
             .container
                 each repo in repos
                     .object
-                        h3= repo.name
+                        h1: a(class="underline-hover" href=repo.html_url)= repo.name
                         p= repo.description
+                        .users
+                            a(href=repo.owner.html_url)
+                                img(class="avatar" src=repo.owner.avatar_url alt=repo.owner.login)
+        
+        section
+
+        script(src="https://kit.fontawesome.com/fa5e751302.js" crossorigin="anonymous")

@@ -46,8 +46,10 @@ body {
   transition: .3s linear;
   position: relative;
   overflow: hidden;
-  z-index: 1;
   border-radius: 6px;
+  user-select: none;
+  cursor: pointer;
+  z-index: 0;
 }
 .button::before {
   content: "";
@@ -56,7 +58,7 @@ body {
     width: 209%;
     height: 0%;
     background: #a15dbd;
-    transition: 0.8s;
+    transition: 0.4s;
     z-index: -1;
     transform: rotatez(45deg);
 }
@@ -69,8 +71,24 @@ body {
 
 a {
   color: var(--txt-a);
+  text-decoration: none;
+  transition: .2 ease;
 }
 
+.underline-hover::after {
+  content: '';
+  width: 0;
+  height: 2px;
+  margin-top: 25px;
+  left: 25px;
+  background-color: #592a6d;
+  position: absolute;
+  transition: .2s linear;
+}
+
+.underline-hover:hover::after {
+  width: 150px;
+}
 
 .navbar {
   display: flex;
@@ -79,7 +97,8 @@ a {
   padding-left: 1rem;
   align-items: center;
   width: 100vw;
-  background: var(--bg-l);
+  background: #fafafa;
+  z-index: 1;
 } 
 
 .logo, .nav-item{
@@ -93,7 +112,6 @@ a {
 }
 
 .logo {
-  font-weight: 600;
   color: var(--txt-l);
 }
 
@@ -102,7 +120,7 @@ a {
 }
 
 section {
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .title {
@@ -123,9 +141,41 @@ section {
   border-radius: 10px;
   transition: .2s ease;
   margin: 5px;
+  overflow: hidden;
 }
 
 .object:hover {
-  box-shadow: 0px 10px 15px #3b3b3b;
+  box-shadow: 0px 10px 20px #3b3b3b;
   transform: translateY(-5px);
+}
+
+span {
+  color: var(--txt-a);
+}
+
+.avatar {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  vertical-align: center;
+}
+
+.profile {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin-top: 2rem;
+  margin-right: 5rem;
+  margin-left: 10rem;
+}
+
+.about-content {
+  display: flex;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5rem;
+  margin-right: 5rem;
 }
