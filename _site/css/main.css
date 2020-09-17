@@ -97,9 +97,14 @@ a {
   padding-left: 1rem;
   align-items: center;
   width: 100vw;
-  background: #fafafa;
   z-index: 1;
+  transition: .2s linear;
 } 
+
+.navbar-move {
+  background: #fafafa;
+  box-shadow: 0px 0px 15px #2b2b2b;
+}
 
 .logo, .nav-item{
   display:flex;
@@ -128,6 +133,10 @@ section {
   padding-bottom: 1rem;
 }
 
+.meee {
+  color: #592a6d;
+}
+
 .container {
   display: flex;
   align-items: center;
@@ -149,22 +158,24 @@ section {
   transform: translateY(-5px);
 }
 
-span {
-  color: var(--txt-a);
-}
-
 .avatar {
   width: 25px;
   height: 25px;
   border-radius: 50%;
   vertical-align: center;
+  border: #fafafa solid 2px;
+  transition: .2s linear;
+}
+
+.avatar:hover {
+  border: 2px solid var(--bg-a);
 }
 
 .profile {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  margin-top: 2rem;
+  margin-top: 0;
   margin-right: 5rem;
   margin-left: 10rem;
 }
@@ -178,4 +189,33 @@ span {
   flex-direction: column;
   margin-left: 5rem;
   margin-right: 5rem;
+}
+
+.abt-social {
+  font-size: 20px;
+  padding: 5px;
+  transition: .2s linear;
+  user-select: none;
+}
+
+.social-link, .social-link:visited {
+  color: #000;
+}
+
+.abt-social:hover {
+  color: var(--txt-a);
+}
+
+.social-txt {
+  font-size: 16px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.about {
+  height: 100vh;
+  align-items: center;
+}
+
+.title {
+  margin-top: 150px;
 }

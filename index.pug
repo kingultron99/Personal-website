@@ -8,7 +8,7 @@ html(lang="en")
     body
 
         //navbar
-        navbar(class="navbar")
+        navbar(class="navbar" id="navbar")
             .logo(onclick="document.getElementById('intro').scrollIntoView({behavior: 'smooth'})")
                 h3 King_ultron99
             .nav-item(onclick="document.getElementById('intro').scrollIntoView({behavior: 'smooth'})") Home
@@ -19,11 +19,11 @@ html(lang="en")
         // intro landing
         .intro(id="intro")
             h1 Hello! I'm 
-                span King_ultron99
+                span(class="meee") King_ultron99
             .button(onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})") About me
         
         // About
-        section(id="about")
+        section(id="about" class="about")
             h1(class="title") About me
             .about-content
                 img(class="profile" src=user.avatar_url)
@@ -31,7 +31,10 @@ html(lang="en")
                     h2 I'm king_ultron99
                     p.
                         I am a self-taught full stack web developer.
-       
+                    .socials
+                        i(class="fab fa-discord abt-social"): span(class="social-txt")  king_ultron99#0647
+                        a(href=user.html_url class="social-link"): i(class="fab fa-github abt-social"): span(class="social-txt")  kingultron99
+                        a(href="https://www.instagram.com/king_ultron99/" class="social-link"): i(class="fab fa-instagram abt-social"): span(class="social-txt")  king_ultron99
         // Repos
         section(id="repos")
             h1(class="title") My Repos
@@ -44,7 +47,18 @@ html(lang="en")
                         .users
                             a(href=repo.owner.html_url)
                                 img(class="avatar" src=repo.owner.avatar_url alt=repo.owner.login)
-        
         section
 
+        script.
+                window.onscroll = function() {myFunction()};
+
+                function myFunction() {
+                if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                    document.getElementById("navbar").className = "navbar navbar-move";
+                } else {
+                    document.getElementById("navbar").className = "navbar";
+                }
+                }
+
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js")
         script(src="https://kit.fontawesome.com/fa5e751302.js" crossorigin="anonymous")
