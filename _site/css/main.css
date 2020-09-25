@@ -75,21 +75,6 @@ a {
   transition: .2 ease;
 }
 
-.underline-hover::after {
-  content: '';
-  width: 0;
-  height: 2px;
-  margin-top: 25px;
-  left: 25px;
-  background-color: #592a6d;
-  position: absolute;
-  transition: .2s linear;
-}
-
-.underline-hover:hover::after {
-  width: 150px;
-}
-
 .navbar {
   display: flex;
   height: 3rem;
@@ -102,7 +87,7 @@ a {
 } 
 
 .navbar-move {
-  background: #fafafa;
+  background: #fcfcfc;
   box-shadow: 0px 0px 15px #2b2b2b;
 }
 
@@ -143,20 +128,22 @@ section {
   justify-content: center;
 }
 
-.object {
+.repo {
   width: 25%;
-  padding: 1rem;
-  background: #fafafa;
-  border-radius: 10px;
-  transition: .2s ease;
   margin: 5px;
+  padding: 1rem;
   overflow: hidden;
+  border-radius: 10px;
+  transition: .3s ease;
 }
 
-.object:hover {
-  box-shadow: 0px 10px 20px #3b3b3b;
-  transform: translateY(-5px);
+
+.repo:hover {
+  transform: translatex(5px);
+  background-color: #f9f9f9;
+  box-shadow: -5px 0 0 #6e3e81;
 }
+
 
 .avatar {
   width: 25px;

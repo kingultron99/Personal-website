@@ -34,15 +34,15 @@ html(lang="en")
                     .socials
                         i(class="fab fa-discord abt-social"): span(class="social-txt")  king_ultron99#0647
                         a(href=user.html_url class="social-link"): i(class="fab fa-github abt-social"): span(class="social-txt")  kingultron99
-                        a(href="https://www.instagram.com/king_ultron99/" class="social-link"): i(class="fab fa-instagram abt-social"): span(class="social-txt")  king_ultron99
+
         // Repos
         section(id="repos")
             h1(class="title") My Repos
 
             .container
                 each repo in repos
-                    .object
-                        h1: a(class="underline-hover" href=repo.html_url)= repo.name
+                    .repo
+                        h1: a( href=repo.html_url)= repo.name
                         p= repo.description
                         .users
                             a(href=repo.owner.html_url)
