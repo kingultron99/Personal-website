@@ -25,6 +25,7 @@ body {
   padding: 0;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
 }
 
 .intro {
@@ -34,7 +35,15 @@ body {
   height: 100vh;
   align-items: center;
   justify-content: center;
+  background-image: url(https://images.pexels.com/photos/950241/pexels-photo-950241.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  background-repeat: none;
 }
+
+#intro h1 > span::after {
+  content: "Lochlan.";
+  animation: textanim 5s linear infinite;
+}
+
 
 .button {
   display: inline-block;
@@ -51,18 +60,19 @@ body {
   cursor: pointer;
   z-index: 0;
 }
+
 .button::before {
   content: "";
-    position: absolute;
-    left: -100px;
-    width: 209%;
-    height: 0%;
+  position: absolute;
+  left: -100px;
+  width: 209%;
+  height: 0%;
     background: #a15dbd;
     transition: 0.4s;
     z-index: -1;
     transform: rotatez(45deg);
-}
-.button::before {
+  }
+  .button::before {
   bottom: 0;
 }
 .button:hover::before {
@@ -103,6 +113,15 @@ a {
 
 .logo {
   color: var(--txt-l);
+}
+
+.nav-item {
+  color: #4b4b4b;
+}
+
+.nav-pfp {
+  width: 30px;
+  border-radius: 50%;
 }
 
 .nav-item:hover, .logo:hover {
@@ -205,4 +224,19 @@ section {
 
 .title {
   margin-top: 150px;
+}
+
+/* Animations */
+
+@keyframes textanim {
+  
+  25% {
+      content: "a Developer.";
+  }
+  50% {
+      content: "a Designer.";
+  }
+  75% {
+      content: "a 3D artist";
+  }
 }

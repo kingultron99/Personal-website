@@ -10,7 +10,7 @@ html(lang="en")
         //navbar
         navbar(class="navbar" id="navbar")
             .logo(onclick="document.getElementById('intro').scrollIntoView({behavior: 'smooth'})")
-                h3 King_ultron99
+                img(class="nav-pfp" src=user.avatar_url)
             .nav-item(onclick="document.getElementById('intro').scrollIntoView({behavior: 'smooth'})") Home
             .nav-item(onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})") About
             .nav-item(onclick="document.getElementById('repos').scrollIntoView({behavior: 'smooth'})") Repos
@@ -19,7 +19,7 @@ html(lang="en")
         // intro landing
         .intro(id="intro")
             h1 Hello! I'm 
-                span(class="meee") King_ultron99
+                span(class="meee")
             .button(onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})") About me
         
         // About
@@ -30,7 +30,7 @@ html(lang="en")
                 .about-text
                     h2 I'm king_ultron99
                     p.
-                        I am a self-taught full stack web developer.
+                        I am a self-taught full stack web developer, UI/UX designer and 3D Artist.
                     .socials
                         i(class="fab fa-discord abt-social"): span(class="social-txt")  king_ultron99#0647
                         a(href=user.html_url class="social-link"): i(class="fab fa-github abt-social"): span(class="social-txt")  kingultron99
