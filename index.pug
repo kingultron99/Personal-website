@@ -14,7 +14,7 @@ html(lang="en")
             .nav-item(onclick="document.getElementById('intro').scrollIntoView({behavior: 'smooth'})") Home
             .nav-item(onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})") About
             .nav-item(onclick="document.getElementById('repos').scrollIntoView({behavior: 'smooth'})") Repos
-            .nav-item(onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})") contact
+            .nav-item(onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})") Contact
         
         // intro landing
         .intro(id="intro")
@@ -34,22 +34,31 @@ html(lang="en")
                     .socials
                         i(class="fab fa-discord abt-social discord-tag-hover"): span(class="social-txt discord-tag")  king_ultron99
                         a(href=user.html_url class="social-link"): i(class="fab fa-github abt-social"): span(class="social-txt")  kingultron99
+    
+
+
+        div(class="wave-container")
+            svg(class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto")
+                defs
+                    path(id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z")
+                g(class="parallax")
+                    use(xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7")
+                    use(xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)")
+                    use(xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)")
+                    use(xlink:href="#gentle-wave" x="48" y="7" fill="#fff")
 
         // Repos
-        section(id="repos")
+        section(id="repos" class="dark")
             h1(class="title") My Repos
 
             .container
                 each repo in repos
-                    .repo
+                    a(class="repo" href=repo.html_url)
                         .go-corner
-                            div(class="go-arrow") →
-                        h1: a( href=repo.html_url)= repo.name
+                            .go-arrow →
+                        h1= repo.name
                         p= repo.description
-                        .users
-                            a(href=repo.owner.html_url)
-                                img(class="avatar" src=repo.owner.avatar_url alt=repo.owner.login)
-        section
 
         script.
                 window.onscroll = function() {myFunction()};
@@ -62,5 +71,24 @@ html(lang="en")
                 }
                 }
 
+        script(src="./js/three.r119.min.js")
+        script(src="./js/vanta.fog.min.js")
+        script.
+                VANTA.FOG({
+                    el: "#intro",
+                    mouseControls: true,
+                    touchControls: true,
+                    gyroControls: false,
+                    minHeight: 200.00,
+                    minWidth: 200.00,
+                    highlightColor: 0x02a646d,
+                    midtoneColor: 0x3e817d,
+                    lowlightColor: 0x2a646d,
+                    baseColor: 0xffffff,
+                    blurFactor: 0.50,
+                    speed: 0.30,
+                    zoom: 0.30
+                })
+        
         script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js")
         script(src="https://kit.fontawesome.com/fa5e751302.js" crossorigin="anonymous")
