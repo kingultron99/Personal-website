@@ -6,15 +6,22 @@ html(lang="en")
         link(rel="stylesheet", href="/css/main.css")
         title king_ultron99
     body
+        
+        .done(id="done"): p Copied!
 
         //navbar
         navbar(class="navbar" id="navbar")
             .logo(onclick="document.getElementById('intro').scrollIntoView({behavior: 'smooth'})")
                 img(class="nav-pfp" src=user.avatar_url)
-            .nav-item(onclick="document.getElementById('intro').scrollIntoView({behavior: 'smooth'})") Home
-            .nav-item(onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})") About
-            .nav-item(onclick="document.getElementById('repos').scrollIntoView({behavior: 'smooth'})") Repos
-            .nav-item(onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})") Contact
+            button(class="menu-toggler")
+                span(class="hamburger-line")
+                span(class="hamburger-line")
+                span(class="hamburger-line")
+            .navbar-menu(id="navbar-menu")
+                a(class="link" onclick="hidesidebar()" href="#") Home
+                a(class="link" onclick="hidesidebar()" href="#about") About
+                a(class="link" onclick="hidesidebar()" href="#repos") Repos
+                a(class="link" onclick="hidesidebar()" href="#contact") Contact
         
         // intro landing
         .intro(id="intro")
@@ -32,7 +39,9 @@ html(lang="en")
                     p.
                         I am a self-taught full stack web developer, UI/UX designer and 3D Artist.
                     .socials
-                        i(class="fab fa-discord abt-social discord-tag-hover"): span(class="social-txt discord-tag")  king_ultron99
+                        i(id="copy" class="fab fa-discord abt-social discord-tag-hover")
+                            span(class="social-txt discord-tag")  king_ultron99
+                                span(class="behind-slideout") #0647
                         a(href=user.html_url class="social-link"): i(class="fab fa-github abt-social"): span(class="social-txt")  kingultron99
     
 
@@ -54,11 +63,16 @@ html(lang="en")
 
             .container
                 each repo in repos
-                    a(class="repo" href=repo.html_url)
-                        .go-corner
-                            .go-arrow →
-                        h1= repo.name
-                        p= repo.description
+                    a(href=repo.html_url)
+                        .repo
+                            .go-corner
+                                .go-arrow →
+                            h1= repo.name
+                            p= repo.description
+
+        
+
+        button(id="goTop" onclick="goTop()" class="goTop fas fa-arrow-up")
 
         script.
                 window.onscroll = function() {myFunction()};
@@ -66,10 +80,70 @@ html(lang="en")
                 function myFunction() {
                 if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
                     document.getElementById("navbar").className = "navbar navbar-move";
+                    document.getElementById("goTop").className  = "goTop fas fa-arrow-up active";
                 } else {
                     document.getElementById("navbar").className = "navbar";
+                    document.getElementById("goTop").className  = "goTop fas fa-arrow-up";
                 }
                 }
+                
+                //---------------------------------------------------------------------------------//
+
+                const span = document.getElementById('copy');
+
+                span.onclick = function() {
+                document.execCommand("copy");
+                setTimeout()
+                }
+
+                span.addEventListener("copy", function(event) {
+                event.preventDefault();
+                if (event.clipboardData) {
+                    event.clipboardData.setData("text/plain", span.textContent);
+                    console.log(event.clipboardData.getData("text"))
+                }
+                });
+
+                //---------------------------------------------------------------------------------//
+                
+                let intro = document.querySelector('.intro')
+
+                function isMobile () {
+                    if( navigator.userAgent.match(/iphone/i) ||
+                    navigator.userAgent.match(/ipad/i) ||
+                    navigator.userAgent.match(/android/i) ||
+                    navigator.userAgent.match(/blackberry/i) ||
+                    navigator.userAgent.match(/android/i)
+                    ) {
+                        return true;
+                    }
+                    return false;
+                }
+
+                if( isMobile() === true) {
+                    intro.removeAttribute("id");
+                } else {
+                    intro.setAttribute("id", "intro");
+                }
+
+                //---------------------------------------------------------------------------------//
+
+                function goTop () {
+                    window.scrollTo(0,0);
+                }
+
+                let menuToggle  = document.querySelector('.menu-toggler');
+
+                menuToggle.addEventListener("click", function() {
+                    menuToggle.classList.toggle("active");
+                    document.getElementById("navbar-menu").classList.toggle("active");
+                })
+
+                function hidesidebar () {
+                    menuToggle.classList.remove("active");
+                    document.getElementById("navbar-menu").classList.remove("active");
+                } 
+
 
         script(src="./js/three.r119.min.js")
         script(src="./js/vanta.fog.min.js")
@@ -90,5 +164,4 @@ html(lang="en")
                     zoom: 0.30
                 })
         
-        script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js")
         script(src="https://kit.fontawesome.com/fa5e751302.js" crossorigin="anonymous")

@@ -1,328 +1,272 @@
+/*
+**  Created by king_ultron99
+**  15/10/2020
+*/
+
+/* --------- Global Variables --------- */
+
 :root {
+    
     /*Text*/
+    
     --txt-l: #000;
     --txt-d: #fff;
     --txt-a: #59b6a8;
     --txt-ad: #449aad;
     --txt-h: #5dbdb7;
+    
     /*Background*/
+    
     --bg-l: #fff;
     --bg-d: #1b1b1b;
     --bg-a: #3e817d;
     --bg-ad: #2a646d;
     --bg-h: #2b2b2b;
     --bg-ah: #59b6a8;
+    --bg-t: #59b6a878;
+    --bg-td: #a1f6ff1c;
+    
     /*informative colours*/
+    
     --scs: #2ecc71;
     --inf: #00B7FF;
     --wrn: #e67e22;
     --err: #e74c3c;
+
+    /*transitions*/
+    --ease: .2s ease;
+    --linear: .2s linear;
+}
+
+/* --------- Base Styling --------- */
+
+* {
+    text-decoration: none;
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  text-rendering: optimizeLegibility;
-}
-
-.intro {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  height: 100vh;
-  align-items: center;
-  justify-content: center;
-  background-repeat: none;
-  background-image: url("../assets/Paper Cut Contour.png");
-}
-
-.intro h1 > span::after {
-  content: "Lochlan.";
-  animation: textanim 5s linear infinite;
-}
-
-
-.button {
-  display: inline-block;
-  padding: 10px 20px;
-  background: var(--bg-a);
-  color: var(--txt-d);
-  margin: 0px 10px;
-  font-size: 14px;
-  transition: .3s linear;
-  position: relative;
-  overflow: hidden;
-  border-radius: 6px;
-  user-select: none;
-  cursor: pointer;
-  z-index: 0;
-}
-
-.button::before {
-  content: "";
-  position: absolute;
-  left: -100px;
-  width: 209%;
-  height: 0%;
-  background: var(--txt-h);
-  transition: 0.4s;
-  z-index: -1;
-  transform: rotatez(45deg);
-}
-.button::before {
-  bottom: 0;
-}
-.button:hover::before {
-  height: 300%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: var(--txt-a);
+  color: var(--txt-l);
   text-decoration: none;
   transition: .2 ease;
 }
+a:hover {
+    color: var(--txt-h);
+}
+/* --------- Misc Styling --------- */
 
-.navbar {
-  display: flex;
-  height: 3.5rem;
-  position: fixed;
-  padding-left: 1rem;
-  align-items: center;
-  width: 100vw;
-  z-index: 2;
-  transition: .2s linear;
-} 
-
-.navbar-move {
-  background: #fcfcfc;
-  box-shadow: 0px 0px 15px #2b2b2b;
+.done {
+    display: flex;
+    height: 3.5rem;
+    position: fixed;
+    text-align: center;
+    align-items: center;
+    color: var(--txt-d);
+    margin-top: -3.5rem;
+    justify-content: center;
+    background-color: var(--scs);
 }
 
-.logo, .nav-item{
-  display:flex;
-  align-items: center;
-  padding: 0 2rem 0 1rem ;
-  user-select: none;
-  cursor: pointer;
-  height: 100%;
-  transition: .2s ease;
+.goTop {
+    margin-right: -5rem;
+    right: 1rem;
+    width: 40px;
+    z-index: 999;
+    bottom: 40px;
+    height: 40px;
+    border: none;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    position: fixed;
+    border-radius: 6px;
+    background: var(--bg-a);
+    transition: var(--linear);
 }
 
-.navbar-move .logo, .navbar-move .nav-item {
-  padding: 0 1rem 0 1rem;
-}
-
-.logo {
-  color: var(--txt-l);
-}
-
-.nav-item {
-  color: var(--bg-h);
-}
-
-.navbar-move .nav-item {
-  color: #1b1b1b;
-}
-
-.nav-pfp {
-  width: 30px;
-  border-radius: 50%;
-  transition: .2s ease;
-}
-
-
-.nav-item:hover, .logo:hover {
-  color: var(--txt-a);
-}
-
-section {
-  padding: 2rem;
-}
-
-.title {
-  text-align: center;
-  padding-bottom: 1rem;
-}
-
-.meee {
-  color: var(--bg-ad);
-}
-
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.discord-tag {
-  background: #fff;
-  transition: .2s ease;
-}
-
-.discord-tag::after {
-  content: '#0647';
-  position: absolute;
-  margin-left: -50px;
-  margin-top: 3px;
-  transition: .2s ease;
-  background: none;
-  z-index: -1;
-  color: var(--txt-a);
-}
-
-.discord-tag-hover {
-  transition: .2s ease;
-}
-
-.discord-tag-hover:hover {
-  margin-right: 3rem;
-  color: var(--txt-a);
-}
-
-.discord-tag-hover:hover .discord-tag::after {
-  margin-left: 0;
+.goTop.active {
+    margin-right: 0;
 }
 
 .dark {
-  color: var(--txt-d);
-  background-color: var(--bg-d);
+    background: var(--bg-d);
+    color: var(--txt-d);
 }
 
-.repo {
-  width: 25%;
-  margin: 5px;
-  padding: 1rem;
-  overflow: hidden;
-  border-radius: 10px;
-  transition: .4s ease;
-  position: relative;
-  background-color: #a1f6ff1c;
-  z-index: 0;
-  user-select: none;
-  opacity: 100%;  
+/* --------- Navbar Styling --------- */
+
+.navbar {
+    z-index: 999;
+    display: flex;
+    height: 4rem;
+    position: fixed;
+    min-width: 100vw;
+    max-width: 100vw;
+    padding-left: 1rem;
+    align-items: center;
+    transition: .2s linear;
+    background-color: transparent;
 }
 
-.repo::before {
-  content:"";
-  position: absolute;
-  top: -16px;
-  right: -16px;
-  background: var(--bg-ah);
-  height: 32px;
-  width: 32px;
-  border-radius: 50%;
-  transform: scale(1);
-  transform-origin: 50% 50%;
-  transition: .3s linear;
-  z-index: -1;
+.navbar-menu a {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 30px;
+    transition: var(--linear);
 }
 
-.repo:hover::before {
-  transform: scale(50);
+.navbar-menu a:hover {
+    color: var(--txt-h);
 }
 
-.repo h1, .repo p {
-  transition: .3s ease;
+.nav-pfp {
+    width: 30px;
 }
 
-.repo:hover h1 {
-  color: var(--txt-d);
+/* --------- Menu-Toggler Styling --------- */
+
+.menu-toggler {
+    width: 40px;
+    border: none;
+    z-index: 999;
+    display: none;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    position: relative;
+    margin-left: auto;
+    margin-right: 2rem;
 }
 
-.repo p {
-  color: var(--txt-a);
+.menu-toggler span {
+    height: 3px;
+    margin: 6px 0;
+    display: block;
+    position: relative;
+    background-color: var(--bg-l);
+    transition: var(--linear);
 }
 
-.repo:hover p {
-  color: #f0f0f0;
+/* --------- Navbar-Move styling --------- */
+
+.navbar-move {
+    background-color: var(--bg-l);
+    height: 3.5rem;
+    box-shadow: 0 0 20px #212121;
 }
 
-.go-corner {
-  content: "";
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  border-radius: 0 5px 0 50%;
-  top: 0;
-  right: 0;
-  background-color: var(--bg-ah);
-
+.navbar-move .menu-toggler span {
+    background-color: var(--bg-d);
 }
 
-.go-arrow {
-  margin-left: 10px;
-  margin-top: 5px;
-  color: white;
+.navbar-move .navbar-menu a {
+    color: var(--txt-l);
 }
 
-.avatar {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  vertical-align: center;
-  border: #fafafa00 solid 2px;
-  transition: .2s linear;
+/* --------- Intro Styling --------- */
+
+.intro {
+    height: 100vh;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-repeat: none;
+    background-position: top;
+    background-size: cover;
+    background-image: url("../assets/Paper Cut Contour.png");
 }
 
-.avatar:hover {
-  border: 2px solid #fafafa;
+.intro h1 > span::after {
+    content: "Lochlan.";
+    animation: textanim 5s linear infinite;
 }
 
-.profile {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  margin-top: 0;
-  margin-right: 5rem;
-  margin-left: 10rem;
+.button {
+    z-index: 1;
+    width: 110px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 0px 10px;
+    overflow: hidden;
+    user-select: none;
+    position: relative;
+    border-radius: 6px;
+    padding: 10px 20px;
+    color: var(--txt-d);
+    display: inline-block;
+    transition: .3s linear;
+    background: var(--bg-a);
+}
+  
+.button::before {
+    height: 0%;
+    z-index: -1;
+    content: "";
+    width: 100%;
+    left: 0;
+    transition: .4s;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    background: var(--txt-h);
+}
+.button::before {
+    bottom: 0;
+}
+.button:hover::before {
+    height: 100%;
 }
 
-.about-content {
-  display: flex;
-}
+/* --------- About Styling --------- */
 
-.about-text {
-  display: flex;
-  flex-direction: column;
-  margin-left: 5rem;
-  margin-right: 5rem;
-}
-
-.abt-social {
-  font-size: 20px;
-  padding: 5px;
-  transition: .2s linear;
-  user-select: none;
-}
-
-.social-link, .social-link:visited {
-  color: #000;
-}
-
-.abt-social:hover {
-  color: var(--txt-a);
-}
-
-.social-txt {
-  font-size: 16px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.about {
-  height: 100vh;
-  align-items: center;
+section {
+    padding: 2rem;
+    padding-bottom: 400px;
 }
 
 .title {
-  margin-top: 150px;
+    margin-top: 200px;
+    text-align: center;
 }
 
-#repos {
-  padding-bottom: 150px;
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
 }
+.profile {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 0;
+    margin-right: 5rem;
+    margin-left: 10rem;
+}
+
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    margin: 0 5rem 0 5rem
+}
+
+/* --------- Wave Styling ---------*/
 
 .wave-container {
   transform: scaleY(-1);
@@ -366,6 +310,109 @@ section {
   animation-delay: -5s;
   animation-duration: 20s;
 }
+
+/* --------- Repo Styling --------- */
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+.container a {
+    width: 50%;
+}
+
+.repo {
+    z-index: 0;
+    margin: 5px;
+    padding: 1rem;
+    opacity: 100%; 
+    overflow: hidden;
+    user-select: none;
+    position: relative;
+    border-radius: 10px;
+    align-items: center;
+    transition: .4s ease;
+    background-color: var(--bg-td);
+}
+
+.repo::before {
+    content:"";
+    top: -16px;
+    width: 32px;
+    z-index: -1;
+    right: -16px;
+    height: 32px;
+    border-radius: 50%;
+    position: absolute;
+    transform: scale(1);
+    transition: .3s linear;
+    background: var(--bg-ah);
+    transform-origin: 50% 50%;
+}
+
+.repo:hover::before {
+    transform: scale(50);
+}
+
+.repo h1, .repo p {
+    transition: .3s ease;
+}
+
+.repo h1 {
+      color: var(--txt-h);
+}
+
+.repo:hover h1 {
+    color: var(--txt-d);
+}
+
+.repo p {
+    color: var(--txt-ad);
+}
+
+.repo:hover p {
+    color: #f0f0f0;
+}
+
+.go-corner {
+    content: "";
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 0 5px 0 50%;
+    top: 0;
+    right: 0;
+    background-color: var(--bg-ah);
+}
+  
+.go-arrow {
+    margin-left: 5px;
+    margin-top: 5px;
+    color: white;
+}
+
+/* --------- Animation Styling --------- */
+
+@keyframes textanim {
+    
+    25% {
+        content: "A Developer.";
+    }
+    
+    50% {
+        content: "A Designer.";
+    }
+    
+    75% {
+        content: "A 3D Artist."
+    }
+}
+
+/* Waves */
+
 @keyframes move-forever {
   0% {
    transform: translate3d(-90px,0,0);
@@ -374,7 +421,76 @@ section {
     transform: translate3d(85px,0,0);
   }
 }
-/*Shrinking for mobile*/
+/* --------- Responsive styling ---------*/
+
+@media screen and (max-width: 980px) {
+
+    .container a {
+        width: 100%;
+    }
+
+    .menu-toggler {
+        display: block;
+    }
+    .navbar-menu {
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        background-color: #1b1b1b;
+        top: 0;
+        right: -100%;
+        max-width: 400px;
+        padding: 80px 50px;
+        transition: .3s linear;
+    }
+    .navbar-menu a {
+        display: block;
+        font-size: 30px;
+        margin: 30px 0;
+    }
+    .navbar-move .navbar-menu {
+        background-color: #fff;
+        color: #000;
+    }
+
+    .navbar-menu.active {
+        right: 0;
+    }
+
+    .menu-toggler.active span:nth-child(1) {
+        transform: rotate(-45deg);
+        top: 4px;
+    }
+    .menu-toggler.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggler.active span:nth-child(3) {
+        transform: rotate(45deg);
+        bottom: 14px;
+    }
+    .intro h1 > span::after {
+        content: "Lochlan.";
+        color: var(--bg-ad);
+    }
+
+    section {
+        text-align: center;
+    }
+    
+    .profile {
+        margin: 0;
+    }
+    
+    .about-content {
+        flex-direction: column;
+        margin: 0;
+    }
+    
+    .about-text {
+        margin: 0;
+    }
+}
+/*Wave Shrinking for mobile*/
 @media (max-width: 768px) {
   .waves {
     height:40px;
@@ -385,24 +501,5 @@ section {
   }
   h1 {
     font-size:24px;
-  }
-}
-
-
-
-
-
-/* Animations */
-
-@keyframes textanim {
-  
-  25% {
-      content: "a Developer.";
-  }
-  50% {
-      content: "a Designer.";
-  }
-  75% {
-      content: "a 3D artist";
   }
 }
