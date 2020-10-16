@@ -41,7 +41,6 @@ html(lang="en")
                     .socials
                         i(id="copy" class="fab fa-discord abt-social discord-tag-hover")
                             span(class="social-txt discord-tag")  king_ultron99
-                                span(class="behind-slideout") #0647
                         a(href=user.html_url class="social-link"): i(class="fab fa-github abt-social"): span(class="social-txt")  kingultron99
     
 
@@ -93,15 +92,18 @@ html(lang="en")
 
                 span.onclick = function() {
                 document.execCommand("copy");
-                setTimeout()
+                document.getElementById("done").classList.add("copied");
+                setTimeout(() => {
+                    document.getElementById("done").classList.remove("copied");
+                }, 1000);
                 }
 
                 span.addEventListener("copy", function(event) {
-                event.preventDefault();
-                if (event.clipboardData) {
-                    event.clipboardData.setData("text/plain", span.textContent);
-                    console.log(event.clipboardData.getData("text"))
-                }
+                    event.preventDefault();
+                    if (event.clipboardData) {
+                        event.clipboardData.setData("text/plain", "king_ultron99#0647");
+                        console.log(event.clipboardData.getData("text"))
+                    }
                 });
 
                 //---------------------------------------------------------------------------------//
@@ -165,3 +167,5 @@ html(lang="en")
                 })
         
         script(src="https://kit.fontawesome.com/fa5e751302.js" crossorigin="anonymous")
+
+        // Thats all folks!
