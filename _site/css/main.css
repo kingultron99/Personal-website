@@ -23,7 +23,7 @@
     --bg-ad: #2a646d;
     --bg-h: #2b2b2b;
     --bg-ah: #59b6a8;
-    --bg-t: #59b6a878;
+    --bg-t: #30ccb550;
     --bg-td: #a1f6ff1c;
     
     /*informative colours*/
@@ -57,6 +57,12 @@ body {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+::selection {
+    background-color: var(--bg-t);
+}
+
+/* --------- Misc Styling --------- */
+
 a {
   color: var(--txt-l);
   text-decoration: none;
@@ -65,8 +71,6 @@ a {
 a:hover {
     color: var(--txt-h);
 }
-/* --------- Misc Styling --------- */
-
 .done {
     width: 100vw;
     z-index: 999;
@@ -244,7 +248,7 @@ a:hover {
 }
 
 .meee {
-    color: var(--txt-a);
+    color: var(--txt-d);
 }
 
 /* --------- About Styling --------- */
@@ -510,8 +514,20 @@ section {
         color: #000;
     }
 
+    .navbar-menu a {
+        color: var(--txt-d);
+    }
+
+    .navbar-menu a:hover {
+        color: var(--txt-h);
+    }
+
     .navbar-menu.active {
         right: 0;
+    }
+
+    .meee {
+        color: var(--txt-a)
     }
 
     .menu-toggler.active span:nth-child(1) {
