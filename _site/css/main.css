@@ -127,7 +127,8 @@ a:hover {
     max-width: 100vw;
     padding-left: 1rem;
     align-items: center;
-    transition: .2s linear;
+    transition: background-color var(--linear),
+                height var(--linear);
     background-color: transparent;
 }
 
@@ -150,6 +151,16 @@ a:hover {
 .nav-pfp {
     width: 30px;
 }
+
+.navbar-menu {
+    display: flex;
+    width: 100%;
+}
+
+.link:last-child {
+    margin-left: auto;
+    margin-right: 2rem;
+}  
 
 /* --------- Menu-Toggler Styling --------- */
 
@@ -375,15 +386,15 @@ section {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-  }
+}
 
 .container a {
-    width: 50%;
+    margin: 10px;
+    width: 33.33%;
 }
 
 .repo {
     z-index: 0;
-    margin: 5px;
     padding: 1rem;
     opacity: 100%; 
     overflow: hidden;
@@ -503,7 +514,13 @@ section {
         max-width: 400px;
         padding: 80px 50px;
         transition: .3s linear;
+        display: block;
     }
+
+    .link:last-child {
+        margin-top: auto;
+    }
+
     .navbar-menu a {
         display: block;
         font-size: 30px;
@@ -561,6 +578,10 @@ section {
     
     .about-text {
         margin: 0;
+    }
+
+    .repo:hover::before {
+        transform: scale(60);
     }
 }
 /*Wave Shrinking for mobile*/

@@ -5,6 +5,7 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet", href="/css/main.css")
         title king_ultron99
+        script(type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js")
     body
         
         .done(id="done"): p Copied!
@@ -22,13 +23,13 @@ html(lang="en")
                 a(class="link" onclick="hidesidebar()" href="#about") About
                 a(class="link" onclick="hidesidebar()" href="#repos") Repos
                 a(class="link" onclick="hidesidebar()" href="#contact") Contact
+                a(class="link"): div(data-netlify-identity-button)
         
         // intro landing
         .intro(id="intro")
             h1 Hello! I'm 
                 span(class="meee")
             .button(onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})") About me
-        
         // About
         section(id="about" class="about")
             h1(class="title") About me
@@ -67,7 +68,7 @@ html(lang="en")
                             .go-corner
                                 .go-arrow →
                             h1= repo.name
-                            p= repo.description
+                            p= repo.description      
 
         
 
