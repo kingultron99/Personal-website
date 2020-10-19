@@ -7,7 +7,6 @@ html(lang="en")
         title king_ultron99
         script(type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js")
     body
-        
         .done(id="done"): p Copied!
 
         //navbar
@@ -23,7 +22,7 @@ html(lang="en")
                 a(class="link" onclick="hidesidebar()" href="#about") About
                 a(class="link" onclick="hidesidebar()" href="#repos") Repos
                 a(class="link" onclick="hidesidebar()" href="#contact") Contact
-                a(class="link"): div(data-netlify-identity-button)
+                a(class="login"): div(data-netlify-identity-button)
         
         // intro landing
         .intro(id="intro")
