@@ -1,46 +1,16 @@
-
-<style>
-    * {
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        text-align: center;
-        color: white;
-        margin: 0;
+<!doctype html>
+<html ⚡4email>
+<head>
+  <meta charset="utf-8">
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <style amp4email-boilerplate>body{visibility:hidden}</style>
+  <style amp-custom>
+    h1 {
+      margin: 1rem;
     }
-
-    div {
-        background-color: #212121;
-        display: flex;
-        flex-direction: column;
-        padding: 5rem;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .title {
-        padding: 0 4rem 3rem 4rem;
-        margin-bottom: 4rem;
-        border-bottom: solid 2px #fff;
-    }
-
-    .link {
-        padding: 20px;
-        margin-top: 3rem;
-        background-color: #5dbdb7;
-    }
-    
-    a {
-        text-decoration: none;
-        color: #fff;
-    }
-</style>
-
-<div>
-    <div class="title">
-        <h1>Hello!</h1>
-    </div>
-    
-    <p>You have been invited to create a user on {{ .SiteURL }}.  Follow this link to accept the invite:</p>
-    <p class="link">
-        <a href="{{ .ConfirmationURL }}">Accept the invite</a>
-    </p>
-</div>
+  </style>
+</head>
+<body>
+  <h1>Hello, I am an AMP EMAIL!</h1>
+</body>
+</html>
