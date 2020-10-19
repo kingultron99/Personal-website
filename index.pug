@@ -5,6 +5,7 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet", href="/css/main.css")
         title king_ultron99
+        link(rel="icon" href=user.avatar_url  type="image/icon type")
         script(type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js")
     body
         .done(id="done"): p Copied!
@@ -22,7 +23,7 @@ html(lang="en")
                 a(class="link" onclick="hidesidebar()" href="#about") About
                 a(class="link" onclick="hidesidebar()" href="#repos") Repos
                 a(class="link" onclick="hidesidebar()" href="#contact") Contact
-                a(class="login"): div(data-netlify-identity-button)
+                div(class="link login" onclick="hidesidebar()" data-netlify-identity-button)
         
         // intro landing
         .intro(id="intro")
@@ -124,6 +125,7 @@ html(lang="en")
 
                 if( isMobile() === true) {
                     intro.removeAttribute("id");
+                    console.log("Ignore any errors given by VANTA, when in mobile. I have removed the ID selector to prevent VANTA from generating the intro background on mobile")
                 } else {
                     intro.setAttribute("id", "intro");
                 }
