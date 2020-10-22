@@ -71,6 +71,7 @@ a {
 a:hover {
     color: var(--txt-h);
 }
+
 .done {
     width: 100vw;
     z-index: 999;
@@ -359,6 +360,20 @@ section {
 .socials i {
     margin-right: 1rem;
     cursor: pointer;
+}
+
+.about-text p a::before {
+    content: '';
+    width: 15px;
+    height: 2.5px;
+    margin-top: 20px;
+    background-color: var(--bg-ah);
+    position: absolute;
+    transition: var(--linear);
+}
+
+.about-text p a:hover::before {
+    width: 60px;
 }
 
 /* --------- Wave Styling ---------*/
